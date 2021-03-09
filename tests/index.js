@@ -19,7 +19,7 @@
 // MODULES //
 
 var assert = require( 'assert' );
-var mod = require( '../' );
+var mod = require( './../' );
 
 
 // MAIN //
