@@ -20,7 +20,12 @@
   },
   "main": "",
   "directories": {},
-  "scripts": {},
+  "scripts": {
+    "asbuild:untouched": "asc assembly/index.ts --target debug",
+    "asbuild:optimized": "asc assembly/index.ts --target release",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+    "test": "node tests"
+  },
   "homepage": "https://github.com/stdlib-js/stdlib",
   "repository": {
     "type": "git",
@@ -29,8 +34,13 @@
   "bugs": {
     "url": "https://github.com/stdlib-js/stdlib/issues"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "@assemblyscript/loader": "^0.18.14",
+    "@stdlib/stdlib": "0.0.93"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.18.14"
+  },
   "engines": {
     "node": ">=12.0.0",
     "npm": ">2.7.0"
