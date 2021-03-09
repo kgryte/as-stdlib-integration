@@ -20,7 +20,7 @@ limitations under the License.
 
 # AssemblyScript Interop
 
-> Proof-of-concept AssemblyScript-stdlib interop.
+> Proof-of-concept for AssemblyScript-stdlib interop.
 
 ## Usage
 

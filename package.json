@@ -2,7 +2,7 @@
   "private": true,
   "name": "as-stdlib-interop",
   "version": "0.0.0",
-  "description": "Proof-of-concept AssemblyScript-stdlib interop.",
+  "description": "Proof-of-concept for AssemblyScript-stdlib interop.",
   "license": "Apache-2.0",
   "author": {
     "name": "The Stdlib Authors",
