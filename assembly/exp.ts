@@ -16,21 +16,4 @@
 * limitations under the License.
 */
 
-import { sin } from './sin';
-import { exp } from './exp';
-
-export function stdlib_sin( x: f64 ): f64 {
-  return sin( x );
-}
-
-export function native_sin( x: f64 ): f64 {
-	return Math.sin( x );
-}
-
-export function stdlib_exp( x: f64 ): f64 {
-  return exp( x );
-}
-
-export function native_exp( x: f64 ): f64 {
-	return Math.exp( x );
-}
+export declare function exp( x: f64 ): f64;

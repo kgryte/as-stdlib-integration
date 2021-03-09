@@ -29,7 +29,7 @@ var mod = require( './../' );
 
 // MAIN //
 
-bench( pkg+'::stdlib', function benchmark( b ) {
+bench( pkg+'::built-in:exp', function benchmark( b ) {
 	var x;
 	var y;
 	var i;
@@ -37,7 +37,7 @@ bench( pkg+'::stdlib', function benchmark( b ) {
 	b.tic();
 	for ( i = 0; i < b.iterations; i++ ) {
 		x = ( randu()*20.0 ) - 10.0;
-		y = mod.stdlib_sin( x );
+		y = Math.exp( x );
 		if ( isnan( y ) ) {
 			b.fail( 'should not return NaN' );
 		}
@@ -50,7 +50,7 @@ bench( pkg+'::stdlib', function benchmark( b ) {
 	b.end();
 });
 
-bench( pkg+'::assemblyscript', function benchmark( b ) {
+bench( pkg+'::stdlib:exp', function benchmark( b ) {
 	var x;
 	var y;
 	var i;
@@ -58,7 +58,7 @@ bench( pkg+'::assemblyscript', function benchmark( b ) {
 	b.tic();
 	for ( i = 0; i < b.iterations; i++ ) {
 		x = ( randu()*20.0 ) - 10.0;
-		y = mod.native_sin( x );
+		y = mod.stdlib_exp( x );
 		if ( isnan( y ) ) {
 			b.fail( 'should not return NaN' );
 		}
@@ -71,7 +71,7 @@ bench( pkg+'::assemblyscript', function benchmark( b ) {
 	b.end();
 });
 
-bench( pkg+'::built-in', function benchmark( b ) {
+bench( pkg+'::assemblyscript:exp', function benchmark( b ) {
 	var x;
 	var y;
 	var i;
@@ -79,7 +79,7 @@ bench( pkg+'::built-in', function benchmark( b ) {
 	b.tic();
 	for ( i = 0; i < b.iterations; i++ ) {
 		x = ( randu()*20.0 ) - 10.0;
-		y = Math.sin( x );
+		y = mod.native_exp( x );
 		if ( isnan( y ) ) {
 			b.fail( 'should not return NaN' );
 		}

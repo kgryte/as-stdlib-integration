@@ -22,6 +22,7 @@ var join = require( 'path' ).join;
 var loader = require( '@assemblyscript/loader' );
 var readFile = require( '@stdlib/fs/read-file' ).sync;
 var sin = require( '@stdlib/math/base/special/sin' );
+var exp = require( '@stdlib/math/base/special/exp' );
 
 
 // MAIN //
@@ -30,6 +31,9 @@ var src = readFile( join( __dirname, '/build/optimized.wasm' ) );
 var mod = loader.instantiateSync( src, {
 	'sin': {
 		'sin': sin
+	},
+	'exp': {
+		'exp': exp
 	}
 });
 
