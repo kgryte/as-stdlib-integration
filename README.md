@@ -22,6 +22,32 @@ limitations under the License.
 
 > Proof-of-concept AssemblyScript-stdlib interop.
 
+## Usage
+
+Clone the repository.
+
+```bash
+$ git clone https://github.com/kgryte/as-stdlib-integration.git
+```
+
+Install module dependencies.
+
+```bash
+$ npm install
+```
+
+Compile the source code to WebAssembly.
+
+```bash
+$ npm run asbuild
+```
+
+Run the tests.
+
+```bash
+$ npm run test
+```
+
 * * *
 
 ## License
