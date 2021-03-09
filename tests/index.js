@@ -24,5 +24,8 @@ var mod = require( '../' );
 
 // MAIN //
 
-assert.equal( mod.erf( 2.5 ), 0.999593047982555 );
+assert.equal( mod.stdlib_sin( 0.5 ), 0.479425538604203 );
+console.log( 'ok' );
+
+assert.equal( mod.native_sin( 0.5 ), 0.479425538604203 );
 console.log( 'ok' );

@@ -21,15 +21,15 @@
 var join = require( 'path' ).join;
 var loader = require( '@assemblyscript/loader' );
 var readFile = require( '@stdlib/fs/read-file' ).sync;
-var erf = require( '@stdlib/math/base/special/erf' );
+var sin = require( '@stdlib/math/base/special/sin' );
 
 
 // MAIN //
 
 var src = readFile( join( __dirname, '/build/optimized.wasm' ) );
 var mod = loader.instantiateSync( src, {
-	'erf': {
-		'erf': erf
+	'sin': {
+		'sin': sin
 	}
 });
 

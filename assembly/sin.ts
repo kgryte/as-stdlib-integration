@@ -16,4 +16,4 @@
 * limitations under the License.
 */
 
-export declare function erf( x: f64 ): f64;
+export declare function sin( x: f64 ): f64;

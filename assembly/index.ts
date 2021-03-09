@@ -16,8 +16,12 @@
 * limitations under the License.
 */
 
-import { erf as _erf } from './erf';
+import { sin } from './sin';
 
-export function erf( x: f64 ): f64 {
-  return _erf( x );
+export function stdlib_sin( x: f64 ): f64 {
+  return sin( x );
+}
+
+export function native_sin( x: f64 ): f64 {
+	return Math.sin( x );
 }
