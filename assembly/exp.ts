@@ -17,3 +17,4 @@
 */
 
 export declare function exp( x: f64 ): f64;
+export declare function js_exp( x: f64 ): f64;

@@ -16,21 +16,47 @@
 * limitations under the License.
 */
 
-import { sin } from './sin';
-import { exp } from './exp';
+import { sin, js_sin } from './sin';
+import { exp, js_exp } from './exp';
 
+/**
+* Wraps the `sin` function from stdlib.
+*/
 export function stdlib_sin( x: f64 ): f64 {
   return sin( x );
 }
 
+/**
+* Wraps the `sin` function from the JavaScript standard library.
+*/
+export function builtin_sin( x: f64 ): f64 {
+  return js_sin( x );
+}
+
+/**
+* Wraps the `sin` from the AssemblyScript standard library.
+*/
 export function native_sin( x: f64 ): f64 {
 	return Math.sin( x );
 }
 
+/**
+* Wraps the `exp` function from stdlib.
+*/
 export function stdlib_exp( x: f64 ): f64 {
   return exp( x );
 }
 
+/**
+* Wraps the `exp` function from the JavaScript standard library.
+*/
+export function builtin_exp( x: f64 ): f64 {
+  return js_exp( x );
+}
+
+/**
+* Wraps the `exp` from the AssemblyScript standard library.
+*/
 export function native_exp( x: f64 ): f64 {
 	return Math.exp( x );
 }

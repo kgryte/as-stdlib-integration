@@ -23,13 +23,14 @@
 var bench = require( '@stdlib/bench' );
 var randu = require( '@stdlib/random/base/randu' );
 var isnan = require( '@stdlib/math/base/assert/is-nan' );
+var exp = require( '@stdlib/math/base/special/exp' );
 var pkg = require( './../package.json' ).name;
 var mod = require( './../' );
 
 
 // MAIN //
 
-bench( pkg+'::built-in:exp', function benchmark( b ) {
+bench( pkg+'::built-in,baseline:exp', function benchmark( b ) {
 	var x;
 	var y;
 	var i;
@@ -50,7 +51,49 @@ bench( pkg+'::built-in:exp', function benchmark( b ) {
 	b.end();
 });
 
-bench( pkg+'::stdlib:exp', function benchmark( b ) {
+bench( pkg+'::built-in,from_webassembly:exp', function benchmark( b ) {
+	var x;
+	var y;
+	var i;
+
+	b.tic();
+	for ( i = 0; i < b.iterations; i++ ) {
+		x = ( randu()*20.0 ) - 10.0;
+		y = mod.builtin_exp( x );
+		if ( isnan( y ) ) {
+			b.fail( 'should not return NaN' );
+		}
+	}
+	b.toc();
+	if ( isnan( y ) ) {
+		b.fail( 'should not return NaN' );
+	}
+	b.pass( 'benchmark finished' );
+	b.end();
+});
+
+bench( pkg+'::stdlib,baseline:exp', function benchmark( b ) {
+	var x;
+	var y;
+	var i;
+
+	b.tic();
+	for ( i = 0; i < b.iterations; i++ ) {
+		x = ( randu()*20.0 ) - 10.0;
+		y = exp( x );
+		if ( isnan( y ) ) {
+			b.fail( 'should not return NaN' );
+		}
+	}
+	b.toc();
+	if ( isnan( y ) ) {
+		b.fail( 'should not return NaN' );
+	}
+	b.pass( 'benchmark finished' );
+	b.end();
+});
+
+bench( pkg+'::stdlib,from_webassembly:exp', function benchmark( b ) {
 	var x;
 	var y;
 	var i;

@@ -30,10 +30,12 @@ var exp = require( '@stdlib/math/base/special/exp' );
 var src = readFile( join( __dirname, '/build/optimized.wasm' ) );
 var mod = loader.instantiateSync( src, {
 	'sin': {
-		'sin': sin
+		'sin': sin,
+		'js_sin': Math.sin
 	},
 	'exp': {
-		'exp': exp
+		'exp': exp,
+		'js_exp': Math.exp
 	}
 });
 

@@ -29,3 +29,6 @@ console.log( 'ok' );
 
 assert.equal( mod.native_sin( 0.5 ), 0.479425538604203 );
 console.log( 'ok' );
+
+assert.equal( mod.builtin_sin( 0.5 ), 0.479425538604203 );
+console.log( 'ok' );

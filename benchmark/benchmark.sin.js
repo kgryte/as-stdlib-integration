@@ -23,13 +23,14 @@
 var bench = require( '@stdlib/bench' );
 var randu = require( '@stdlib/random/base/randu' );
 var isnan = require( '@stdlib/math/base/assert/is-nan' );
+var sin = require( '@stdlib/math/base/special/sin' );
 var pkg = require( './../package.json' ).name;
 var mod = require( './../' );
 
 
 // MAIN //
 
-bench( pkg+'::built-in:sin', function benchmark( b ) {
+bench( pkg+'::built-in,baseline:sin', function benchmark( b ) {
 	var x;
 	var y;
 	var i;
@@ -50,7 +51,49 @@ bench( pkg+'::built-in:sin', function benchmark( b ) {
 	b.end();
 });
 
-bench( pkg+'::stdlib:sin', function benchmark( b ) {
+bench( pkg+'::built-in,from_webassembly:sin', function benchmark( b ) {
+	var x;
+	var y;
+	var i;
+
+	b.tic();
+	for ( i = 0; i < b.iterations; i++ ) {
+		x = ( randu()*20.0 ) - 10.0;
+		y = mod.builtin_sin( x );
+		if ( isnan( y ) ) {
+			b.fail( 'should not return NaN' );
+		}
+	}
+	b.toc();
+	if ( isnan( y ) ) {
+		b.fail( 'should not return NaN' );
+	}
+	b.pass( 'benchmark finished' );
+	b.end();
+});
+
+bench( pkg+'::stdlib,baseline:sin', function benchmark( b ) {
+	var x;
+	var y;
+	var i;
+
+	b.tic();
+	for ( i = 0; i < b.iterations; i++ ) {
+		x = ( randu()*20.0 ) - 10.0;
+		y = sin( x );
+		if ( isnan( y ) ) {
+			b.fail( 'should not return NaN' );
+		}
+	}
+	b.toc();
+	if ( isnan( y ) ) {
+		b.fail( 'should not return NaN' );
+	}
+	b.pass( 'benchmark finished' );
+	b.end();
+});
+
+bench( pkg+'::stdlib,from_webassembly:sin', function benchmark( b ) {
 	var x;
 	var y;
 	var i;
